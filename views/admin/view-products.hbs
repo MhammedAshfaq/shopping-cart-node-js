@@ -1,0 +1,49 @@
+<section>
+    <div class="container">
+        <div class="row mt-4">
+            <a href="/admin/add-product" class="btn btn-success mb-3" style="width: 200px; margin-left: auto;">Add
+                Product</a>
+        </div>
+        <table class="table table-striped mt-4 " id="productsTable">
+            <thead>
+                <tr>
+                    <th scope="col">NO</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Categary</th>
+                    <th scope="col">Discription</th>
+                    <th scope="col">Prince</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each products}}
+                <tr>
+                    <th scope="row">1</th>
+                    <td>{{this.Name}}</td>
+                    <td>{{this.Category}}</td>
+                    <td>{{this.Discription}}</td>
+                    <td>{{this.Price}}</td>
+                    <td><img style="height: 50px; width: 50px;" src="/product-images/{{this._id}}.jpg"
+                            alt="product image"></td>
+                    <td><a class="btn btn-outline-secondary" href="/admin/edit-product/{{this._id}}">Edit</a>
+                        <a class="btn btn-outline-danger" href="/admin/delete-product?id={{this._id}}"
+                            onclick="return confirm('Are you want to delete {{this.Name}}')">Delete</a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<script>
+
+     $(function () {
+       $('#productsTable').DataTable();
+     });
+
+    // $(document).ready(function () {
+    //    $('#productsTable').DataTable();
+    //}); 
+</script>

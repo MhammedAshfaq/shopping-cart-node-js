@@ -1,0 +1,53 @@
+<section>
+    <div class="container">
+        <div class="row mt-4">
+            <h3 class="text-center">My Orders</h3>
+            <a href="/admin" class="btn btn-success mb-4" style="width: 200px; margin-left: auto;">
+                Back To Menu</a>
+        </div>
+        <table class="table table-striped mt-4 " id="productsTable">
+            <thead>
+                <tr>
+                    <th scope="col"> UserID</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Pincode</th>
+                    <th scope="col">Mobile</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Payment</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Option</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each orders}}
+                <tr>
+                    <td>{{this.userId}}</td>
+                    <td>{{this.date}}</td>
+                    <td>{{this.deliveryDetails.address}}</td>
+                    <td>{{this.deliveryDetails.pincode}}</td>
+                    <td>{{this.deliveryDetails.mobile}}</td>
+                    <td>{{this.totalAmount}}</td>
+                    <td>{{this.paymentMethod}}</td>
+                    <td>{{this.status}}</td>
+                    <td>
+                        <a class="btn btn-success" href="/admin/order-statusChange/{{this._id}}"> Shipped</a>
+                    </td>
+
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<script>
+
+    $(function () {
+        $('#productsTable').DataTable();
+    });
+
+    // $(document).ready(function () {
+    //    $('#productsTable').DataTable();
+    //}); 
+</script>

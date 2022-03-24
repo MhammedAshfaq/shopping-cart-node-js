@@ -1,0 +1,62 @@
+{{!-- <section>
+    <div class="container mt-5">
+        <div class="row">
+            {{#each products}}
+            <div class="col-md-2 p-3">
+                <div class="card" style="width: 15rem; height: 26rem;">
+                    <img style="height: 14rem;" src="/product-images/{{this.product._id}}.jpg" class="card-img-top"
+                        alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{this.product.Name}}</h5>
+                        <p class="card-text">{{this.product.Category}}</p>
+                        <p class="card-text">{{this.product.Discription}}</p>
+                        <p class="card-text">Rs.{{this.product.Price}}</p>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</section> --}}
+
+
+<section>
+    <div class="container">
+        <h2 class="text-center mt-4 mb-4">Ordered Products</h2>
+        <table class="table table-striped mt-4 " id="productsTable">
+            <thead>
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Categary</th>
+                    <th scope="col">Discription</th>
+                    <th scope="col">Prince</th>
+                    <th scope="col">Image</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each products}}
+                <tr>
+                    <td>{{this.product.Name}}</td>
+                    <td>{{this.product.Category}}</td>
+                    <td>{{this.product.Discription}}</td>
+                    <td>{{this.product.Price}}</td>
+                    <td><img style="height: 50px; width: 50px;" src="/product-images/{{this.product._id}}.jpg"
+                            alt="product image">
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<script>
+
+    $(function () {
+        $('#productsTable').DataTable();
+    });
+
+    // $(document).ready(function () {
+    //    $('#productsTable').DataTable();
+    //}); 
+</script>
